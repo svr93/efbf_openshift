@@ -4,8 +4,12 @@
 #include <map>
 #include <vector>
 
+#include "factorization.h" // SVR93
+
 using namespace std;
 
+// SVR93 // first value of internal vector - method (id)
+vector<vector<int> > methods; // SVR93
 
 //! Модуль 64-битного числа
 /* SVR93 [because of error C2084] long long abs (long long n)
