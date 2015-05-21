@@ -8,10 +8,10 @@ using namespace std;
 
 
 //! Модуль 64-битного числа
-long long abs (long long n)
+/* SVR93 [because of error C2084] long long abs (long long n)
 {
 	return n < 0 ? -n : n;
-}
+} SVR93 */
 
 unsigned long long abs (unsigned long long n)
 {
@@ -720,5 +720,5 @@ void factorize (const T & n, std::map<T,unsigned> & result, T2 unused)
 	for (map <base, unsigned>::iterator i=m.begin(); i!=m.end(); ++i)
 		cout << i->first << ' ' << i->second << endl;
 
-}
-*/
+  return 0;
+} */
