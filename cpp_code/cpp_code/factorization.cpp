@@ -2,7 +2,7 @@
 
 #include "factorization.h" // SVR93
 
-using namespace std;
+// SVR93
 
 // SVR93 // first value of internal vector - method (id)
 vector<vector<int> > methods; // SVR93
