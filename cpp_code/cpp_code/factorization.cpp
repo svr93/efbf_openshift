@@ -1,8 +1,4 @@
-#include <algorithm>
-#include <cmath>
-#include <iostream>
-#include <map>
-#include <vector>
+// SVR93
 
 #include "factorization.h" // SVR93
 
