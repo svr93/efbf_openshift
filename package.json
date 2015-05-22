@@ -1,0 +1,23 @@
+{
+  "name": "factorization__online_service",
+  "version": "1.0.0",
+  "description": "Service for BMSTU control work",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/svr93/efbf"
+  },
+  "author": "Vladimir Shamsheev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/svr93/efbf/issues"
+  },
+  "homepage": "https://github.com/svr93/efbf",
+  "dependencies": {
+    "impress": "^0.1.267"
+  }
+}
