@@ -18,9 +18,9 @@ module.exports = {
 
   // PgSQL example database configuration
   //
-  pgsqlConnection: {
-    url: 'postgres://mil_svr93:39rvs_lim@localhost:5432/mil_svr93'
-  }
+  // pgsqlConnection: {
+  //  url: 'postgres://mil_svr93:39rvs_lim@localhost:5432/mil_svr93'
+  // }
 
   // MongoDB example database configuration
   //
