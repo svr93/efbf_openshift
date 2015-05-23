@@ -24,4 +24,6 @@ factorize <base, base> (const base& n, map<base, unsigned>& result, base unused)
 
 /* ----- /factorize ----- */
 
+void clearVector();
+
 #endif
