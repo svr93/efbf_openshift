@@ -18,6 +18,8 @@ int main() {
   map <base, unsigned> m;
   vector<vector<base> >methods; // need replace base-->unsigned
 
+  clearVector();
+
   methods = factorize (n, m, (base) 0);
 
   for (vector<vector<base> >::iterator i = methods.begin();
