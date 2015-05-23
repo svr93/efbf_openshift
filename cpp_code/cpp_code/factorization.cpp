@@ -704,13 +704,13 @@ factorize (const T & n, std::map<T,unsigned> & result, T2 unused) // SVR93
       ++result[n];
     else
       // если число достаточно маленькое, то его разлагаем простым перебором
-      if (n < 1000*1000)
+      /* SVR93 if (n < 1000*1000)
       {
         T div = prime_div_trivial (n, 1000);
         ++result[div];
         factorize (n / div, result, unused);
       }
-      else
+      else SVR93 */
       {
         // число большое, запускаем на нем алгоритмы факторизации
         T div;
@@ -718,12 +718,12 @@ factorize (const T & n, std::map<T,unsigned> & result, T2 unused) // SVR93
         /* div = pollard_monte_carlo (n);
         if (div == 1)
           div = pollard_rho (n);
-        if (div == 1) */
-          div = pollard_p_1 (n);
-        /* if (div == 1)
-          div = pollard_bent (n); */
-        // если алгоритмы Полларда ничего не дали, то запускаем алгоритм Ферма, который гарантированно находит делитель
         if (div == 1)
+          div = pollard_p_1 (n);
+        if (div == 1)
+          div = pollard_bent (n);
+        // если алгоритмы Полларда ничего не дали, то запускаем алгоритм Ферма, который гарантированно находит делитель
+        if (div == 1) */
           div = ferma (n, unused);
         // рекурсивно обрабатываем найденные множители
         factorize (div, result, unused);
@@ -732,5 +732,9 @@ factorize (const T & n, std::map<T,unsigned> & result, T2 unused) // SVR93
 
   return methods; // SVR93
 }
+
+void clearVector() { // SVR93
+  methods.clear(); // SVR93
+} // SVR93
 
 // SVR93
