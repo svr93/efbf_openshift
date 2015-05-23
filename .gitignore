@@ -3,3 +3,5 @@ build/
 Debug/
 *.log
 *.opensdf
+
+applications/main/app/api/info.json/factorization.*
