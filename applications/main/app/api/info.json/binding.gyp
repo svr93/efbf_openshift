@@ -3,14 +3,11 @@
     {
       "target_name": "addon",
       "sources": [
-        "math_space.cc",
+        "factorization.cc",
 
-        "calculate_abs_cartesian_coords.cc",
-        "translate_abs_cartesian_to_rel_cartesian.cc",
-        "calculate_station_coords.cc",
-        "get_sat_projection.cc",
+        "factorize.cc",
         
-        "coords_transformation.cc"
+        "adapter.cc"
       ]
     }
   ]
