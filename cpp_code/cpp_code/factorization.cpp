@@ -4,8 +4,11 @@
 
 // SVR93
 
-// SVR93 // first value of internal vector - method (id)
-vector<vector<int> > methods; // SVR93
+// SVR93 // first value of internal vector - method (id):
+         // 0 - Pollard (p - 1); 1 - Ferma
+
+vector<vector<base> > methods; // SVR93
+
 
 //! Модуль 64-битного числа
 /* SVR93 [because of error C2084] long long abs (long long n)
@@ -532,6 +535,16 @@ T pollard_p_1 (T n)
 			
 			// проверяем, не найден ли ответ
 			T g = gcd (aa-1, n);
+
+      vector<base> values; // SVR93
+
+      values.push_back(0); // SVR93
+      values.push_back( (base)qq); // SVR93
+      values.push_back( (base)aa); // SVR93
+      values.push_back( (base)g); // SVR93
+
+      methods.push_back(values); // SVR93
+
 			if (1 < g && g < n)
 				return g;
 		}
@@ -651,8 +664,18 @@ T ferma (const T & n, T2 unused)
 		x = sq_root (n),
 		y = 0,
 		r = x*x - y*y - n;
-	for (;;)
-		if (r == 0)
+	for (;;) { // SVR93
+    
+    vector<base> values; // SVR93
+
+    values.push_back(1); // SVR93
+    values.push_back( (base)x); // SVR93
+    values.push_back( (base)y); // SVR93
+    values.push_back( (base)r); // SVR93
+
+    methods.push_back(values); // SVR93
+
+    if (r == 0)
 			return x!=y ? x-y : x+y;
 		else
 			if (r > 0)
@@ -665,11 +688,13 @@ T ferma (const T & n, T2 unused)
 				r += x+x+1;
 				++x;
 			}
+  } // SVR93
 }
 
 //! Рекурсивная факторизация числа. Последний параметр должен быть того же типа, что и первый, только signed. Использует тест BPSW, метод Ферма, метод Полларда RHO, метод Полларда-Бента, метод Полларда Monte-Carlo
 template <class T, class T2>
-void factorize (const T & n, std::map<T,unsigned> & result, T2 unused)
+vector<vector<base> > // SVR93
+factorize (const T & n, std::map<T,unsigned> & result, T2 unused) // SVR93
 {
 	if (n == 1)
 		;
@@ -700,25 +725,12 @@ void factorize (const T & n, std::map<T,unsigned> & result, T2 unused)
 				// если алгоритмы Полларда ничего не дали, то запускаем алгоритм Ферма, который гарантированно находит делитель
 				if (div == 1)
 					div = ferma (n, unused);
-				// рекурсивно обрабатываем найденные множители
+        // рекурсивно обрабатываем найденные множители
 				factorize (div, result, unused);
 				factorize (n / div, result, unused);
 			}
+
+  return methods; // SVR93
 }
 
-
-/* int main()
-{
-	typedef long long base;
-
-	base n;
-	cin >> n;
-
-	map <base, unsigned> m;
-	factorize (n, m, (long long) 0);
-
-	for (map <base, unsigned>::iterator i=m.begin(); i!=m.end(); ++i)
-		cout << i->first << ' ' << i->second << endl;
-
-  return 0;
-} */
+// SVR93
