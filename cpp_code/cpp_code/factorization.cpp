@@ -253,8 +253,9 @@ const std::vector<T> & get_primes (const T & b, T2 & pi)
     for (T cur=first; cur<=b; ++++cur)
     {
       bool cur_is_prime = true;
-      for (std::vector<T>::const_iterator iter = primes.begin(), end = primes.end();
-        iter != end; ++iter)
+      for (typename vector<T>::const_iterator iter = primes.begin(), // SVR93
+           end = primes.end(); // SVR93
+           iter != end; ++iter) // SVR93
       {
         const T & div = *iter;
         if (div * div > cur)
@@ -296,8 +297,9 @@ T2 prime_div_trivial (const T & n, T2 m)
   const vector<T2> & primes = get_primes (m, pi);
 
   // делим на все простые
-  for (std::vector<T2>::const_iterator iter=primes.begin(), end=primes.end();
-    iter!=end; ++iter)
+  for (typename vector<T2>::const_iterator iter=primes.begin(), // SVR93
+       end=primes.end(); // SVR93
+       iter!=end; ++iter) // SVR93
   {
     const T2 & div = *iter;
     if (div * div > n)
@@ -623,8 +625,9 @@ T pollard_monte_carlo (T n, unsigned m = 100)
     for (T prime=5; prime<=m; ++++prime)
     {
       bool is_prime = true;
-      for (std::vector<T>::const_iterator iter=primes.begin(), end=primes.end();
-        iter!=end; ++iter)
+      for (typename vector<T>::const_iterator iter=primes.begin(), // SVR93
+           end=primes.end(); // SVR93
+           iter!=end; ++iter) // SVR93
       {
         T div = *iter;
         if (div*div > prime)
@@ -732,6 +735,10 @@ factorize (const T & n, std::map<T,unsigned> & result, T2 unused) // SVR93
 
   return methods; // SVR93
 }
+
+template
+vector<vector<base> >
+factorize <base, base> (const base& n, map<base, unsigned>& result, base unused);
 
 void clearVector() { // SVR93
   methods.clear(); // SVR93
