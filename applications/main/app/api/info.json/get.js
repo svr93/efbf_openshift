@@ -15,7 +15,7 @@ module.exports = function(client, callback) {
 
   var n = +client.query.n;
 
-  if (n % 2 == 0 || n > 10e8) {
+  if (isNaN(n) || n % 2 == 0 || n > 10e8) {
     client.context.data = {
       err: 'Введите корректное значение числа'
     };
