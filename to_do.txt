@@ -3,4 +3,6 @@
 3) не обрабатывать чётные числа; ++
 4) сделать вычисления для небольших чисел прямо в браузере
   (setTimeout для разрыва);
-5)
+5) настроить openshift
+  /* https://developers.openshift.com/en/diy-overview.html */
+6)
