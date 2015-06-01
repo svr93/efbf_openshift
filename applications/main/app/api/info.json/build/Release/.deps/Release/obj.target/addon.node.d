@@ -1,0 +1,1 @@
+cmd_Release/obj.target/addon.node := flock ./Release/linker.lock g++ -shared -pthread -rdynamic -m64  -Wl,-soname=addon.node -o Release/obj.target/addon.node -Wl,--start-group Release/obj.target/addon/factorization.o Release/obj.target/addon/factorize.o Release/obj.target/addon/adapter.o -Wl,--end-group 
