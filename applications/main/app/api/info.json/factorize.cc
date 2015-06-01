@@ -1,6 +1,12 @@
 #define BUILDING_NODE_EXTENSION
 
 #include "factorize.h"
+    
+map <base, unsigned> m;
+vector<vector<base> >steps;
+
+base n = 0;
+base k = 0;
 
 Handle<Value> factorize(const Arguments& args) {
   HandleScope scope;
@@ -15,19 +21,19 @@ Handle<Value> factorize(const Arguments& args) {
     ThrowException(Exception::TypeError(String::New("Wrong args")));
     return scope.Close(Undefined());
   }
+  
+  m.clear();
+  steps.clear();
 
-  base n = args[0]->NumberValue();
-    
-  map <base, unsigned> m;
-  vector<vector<base> >methods; // need replace base-->unsigned
+  n = args[0]->NumberValue();
 
   Local<Array>resultArr = Array::New();
 
   clearVector();
-  methods = factorize (n, m, (base) 0);
+  steps = factorize (n, m, (base) 0);
 
-  for (vector<vector<base> >::iterator i = methods.begin();
-       i != methods.end();
+  for (vector<vector<base> >::iterator i = steps.begin();
+       i != steps.end();
        ++i) {
 
     Local<Array>resultArrRow = Array::New();
@@ -39,12 +45,12 @@ Handle<Value> factorize(const Arguments& args) {
       resultArrRow->Set(Number::New(j - (*i).begin()), Number::New(*j));
     }
 
-    resultArr->Set(Number::New(i - methods.begin()), resultArrRow);
+    resultArr->Set(Number::New(i - steps.begin()), resultArrRow);
   }
 
   Local<Array>primeNumbersArr = Array::New();
 
-  base k = 0; // ??
+  k = 0; // ??
 
   for (map <base, unsigned>::iterator i = m.begin();
        i != m.end();
