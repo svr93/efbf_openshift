@@ -13,9 +13,13 @@ module.exports = function(client, callback) {
     return;
   }
 
-  var n = Math.floor(+client.query.n);
-
-  if (isNaN(n) || n % 2 == 0 || n > 10e8 || n < 3) {
+  var n = +client.query.n;
+  
+  if (n % 1 != 0 ||
+      n % 2 == 0 ||
+      n < 9 ||
+      n > 10e9) {
+        
     client.context.data = {
       err: 'Введите корректное значение числа'
     };
