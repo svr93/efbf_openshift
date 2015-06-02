@@ -18,7 +18,7 @@ module.exports = function(client, callback) {
   if (n % 1 != 0 ||
       n % 2 == 0 ||
       n < 9 ||
-      n > 1e9) {
+      n > 1e8) {
         
     client.context.data = {
       err: 'Введите корректное значение числа'
