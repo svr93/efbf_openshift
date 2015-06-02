@@ -29,5 +29,6 @@ module.exports = function(client, callback) {
   }
 
   client.context.data = mathLib.factorize(n);
+  client.context.data.uptime_sec =  impress.sandbox.process.uptime();
   callback();  
 };
